@@ -4,7 +4,8 @@ import { IoMdSearch } from "react-icons/io";
 
 const SearchField = () => {
   return (
-    <div className="px-8 rounded-2xl bg-neutral-700 flex justify-center items-center text-white shadow-lg p-3">
+    <div className="p-2 rounded-2xl bg-neutral-700 flex justify-center items-center text-white shadow-lg">
+      <IoMdSearch className="ml-2" size={25} />
       <Input
         label=""
         isClearable
@@ -18,9 +19,6 @@ const SearchField = () => {
           ],
         }}
         placeholder="Type to search..."
-        startContent={
-          <IoMdSearch className="text-black/50 mr-2 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
-        }
       />
     </div>
   );

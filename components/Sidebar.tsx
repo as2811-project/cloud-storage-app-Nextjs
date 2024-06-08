@@ -6,8 +6,11 @@ import { IoHomeOutline } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
+import { PiTagSimpleDuotone } from "react-icons/pi";
+import { Divider } from "@nextui-org/react";
 import SidebarItem from "./SidebarItem";
 import Box from "./Box";
+import TagItem from "./TagItems";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -44,9 +47,49 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     ],
     [pathname]
   );
+  const tags = useMemo(
+    () => [
+      {
+        label: "Red",
+        active: pathname === "/red",
+        href: "/red",
+        icon: PiTagSimpleDuotone,
+        className: "text-red-500",
+      },
+      {
+        label: "Green",
+        active: pathname === "/green",
+        href: "/green",
+        icon: PiTagSimpleDuotone,
+        className: "text-green-500",
+      },
+      {
+        label: "Blue",
+        active: pathname === "/blue",
+        href: "/blue",
+        icon: PiTagSimpleDuotone,
+        className: "text-sky-500",
+      },
+      {
+        label: "Yellow",
+        active: pathname === "/yellow",
+        href: "/yellow",
+        icon: PiTagSimpleDuotone,
+        className: "text-yellow-500",
+      },
+      {
+        label: "Purple",
+        active: pathname === "/purple",
+        href: "/purple",
+        icon: PiTagSimpleDuotone,
+        className: "text-purple-500",
+      },
+    ],
+    [pathname]
+  );
   return (
     <div className="flex h-full">
-      <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
+      <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[250px] p-2">
         <Box>
           <div className="flex flex-col gap-y-4 px-5 py-4">
             <h1 className="text-xl flex items-center">
@@ -57,6 +100,11 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             </h1>
             {routes.map((item) => (
               <SidebarItem key={item.label} {...item} />
+            ))}
+            <Divider className="my-4" />
+            <h1 className="mt-2">Tags</h1>
+            {tags.map((item) => (
+              <TagItem key={item.label} {...item} />
             ))}
           </div>
         </Box>

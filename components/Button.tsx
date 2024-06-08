@@ -9,7 +9,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         type={type}
         className={twMerge(
-          "w-full rounded-full text-black bg-white hover:bg-amber-400 hover:text-white border border-transparent px-3 py-3",
+          "w-full rounded-full text-black bg-white hover:bg-purple-500 hover:text-white border border-transparent px-3 py-3",
           className
         )}
       >
