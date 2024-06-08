@@ -49,6 +49,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
         <Box>
           <div className="flex flex-col gap-y-4 px-5 py-4">
+            <h1 className="text-xl flex items-center">
+              Next
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                Cloud
+              </span>
+            </h1>
             {routes.map((item) => (
               <SidebarItem key={item.label} {...item} />
             ))}
