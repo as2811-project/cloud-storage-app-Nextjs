@@ -101,7 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             {routes.map((item) => (
               <SidebarItem key={item.label} {...item} />
             ))}
-            <Divider className="my-4" />
+            <Divider className="my-4 text-white" />
             <h1 className="mt-2">Tags</h1>
             {tags.map((item) => (
               <TagItem key={item.label} {...item} />
