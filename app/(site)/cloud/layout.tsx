@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import "./globals.css";
+import "/globals.css";
 import Sidebar from "@/components/Sidebar";
 import RightSidebar from "@/components/RightSection";
 

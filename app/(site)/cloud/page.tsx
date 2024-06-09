@@ -25,7 +25,7 @@ export default function Home() {
       </div>
       <div className="ml-8 mt-4">
         <h1 className="text-xl mb-5 dark:text-white subpixel-antialiased ">
-          All files
+          Files and Folders
         </h1>
         <FilesFolders />
       </div>

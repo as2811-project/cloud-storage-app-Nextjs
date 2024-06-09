@@ -11,7 +11,7 @@ export default function FilesFolders() {
     },
     {
       title: "Raspberry",
-      img: "https://nextui.org/images/fruit-3.jpeg",
+      img: "/folder.png",
       filetype: "JPEG",
     },
     {

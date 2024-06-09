@@ -1,8 +1,14 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import { SlOptionsVertical } from "react-icons/sl";
+import LBox from "./ListBox";
 
 export default function RecentFilesCard() {
+  const [showLbox, setShowLbox] = useState<Array<boolean>>(
+    new Array(3).fill(false)
+  );
+
   const list = [
     {
       title: "Orange",
@@ -21,13 +27,18 @@ export default function RecentFilesCard() {
     },
   ];
 
+  const toggleLbox = (index: number) => {
+    setShowLbox((prev) => prev.map((item, i) => (i === index ? !item : false)));
+  };
+
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-3 gap-4">
       {list.map((item, index) => (
         <Card
           shadow="sm"
           key={index}
           isPressable
+          className="relative"
           onClick={() => console.log("item pressed")}
         >
           <CardBody className="p-1 ml-2">
@@ -41,6 +52,20 @@ export default function RecentFilesCard() {
                 width={80}
                 height={80}
               />
+              <button
+                className="absolute top-2 right-2 text-white bg-neutral-700 rounded-md p-2 hover:bg-neutral-600"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the card's onClick event
+                  toggleLbox(index);
+                }}
+              >
+                <SlOptionsVertical />
+              </button>
+              {showLbox[index] && (
+                <div className="absolute top-10 right-2 z-10">
+                  <LBox />
+                </div>
+              )}
             </div>
           </CardBody>
           <CardFooter className="w-[240px] text-bold justify-between">
