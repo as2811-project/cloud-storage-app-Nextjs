@@ -17,7 +17,7 @@ export default function RecentFilesCard() {
     {
       title: "Raspberry",
       img: "https://nextui.org/images/fruit-3.jpeg",
-      filetype: "JPEG",
+      filetype: "Folder",
     },
     {
       title: "Lemon",

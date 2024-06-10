@@ -19,6 +19,21 @@ export default function FilesFolders() {
       img: "/mc-file-pdf.png",
       filetype: "PDF",
     },
+    {
+      title: "Apple",
+      img: "/mc-file-document.png",
+      filetype: "Word",
+    },
+    {
+      title: "Banana",
+      img: "/folder.png",
+      filetype: "JPEG",
+    },
+    {
+      title: "Pear",
+      img: "/folder.png",
+      filetype: "PDF",
+    },
   ];
 
   return (

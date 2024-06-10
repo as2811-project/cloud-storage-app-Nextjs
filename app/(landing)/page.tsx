@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 import React from "react";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ const LandingPage = () => {
         </span>
       </h1>
       <h2 className="text-4xl mt-3 font-thin">
-        A Next/.NET/Supabase Cloud Storage App
+        A NextJS/.NET/Supabase Cloud Storage App
       </h2>
       <Link
         href="/login"
