@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/Header";
 import RecentFilesCard from "@/components/RecentFilesCard";
 import SearchField from "@/components/SearchField";
@@ -5,7 +6,7 @@ import FilesFolders from "@/components/FilesFolders";
 
 export default function Home() {
   return (
-    <div className="dark:bg-neutral-950 rounded-lg h-full w-full overflow-hidden overflow-y-auto mr-6">
+    <div className="dark:bg-neutral-950 rounded-lg h-full w-full overflow-hidden overflow-y-auto mr-5">
       <Header>
         <div className="mb-2">
           <h1 className="dark:text-white text-2xl font-semibold subpixel-antialiased ">

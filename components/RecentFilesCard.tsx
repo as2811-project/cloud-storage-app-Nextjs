@@ -1,12 +1,11 @@
-"use client";
 import React, { useState } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { SlOptionsVertical } from "react-icons/sl";
 import LBox from "./ListBox";
 
 export default function RecentFilesCard() {
-  const [showLbox, setShowLbox] = useState<Array<boolean>>(
-    new Array(3).fill(false)
+  const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(
+    null
   );
 
   const list = [
@@ -27,10 +26,6 @@ export default function RecentFilesCard() {
     },
   ];
 
-  const toggleLbox = (index: number) => {
-    setShowLbox((prev) => prev.map((item, i) => (i === index ? !item : false)));
-  };
-
   return (
     <div className="grid grid-cols-3 gap-4">
       {list.map((item, index) => (
@@ -38,10 +33,9 @@ export default function RecentFilesCard() {
           shadow="sm"
           key={index}
           isPressable
-          className="relative"
           onClick={() => console.log("item pressed")}
         >
-          <CardBody className="p-1 ml-2">
+          <CardBody className="relative p-1 ml-2">
             <div className="relative w-[240px] h-[200px] hover:bg-neutral-700 rounded-lg bg-neutral-800 flex items-center justify-center">
               <Image
                 shadow="sm"
@@ -52,20 +46,18 @@ export default function RecentFilesCard() {
                 width={80}
                 height={80}
               />
-              <button
-                className="absolute top-2 right-2 text-white bg-neutral-700 rounded-md p-2 hover:bg-neutral-600"
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent triggering the card's onClick event
-                  toggleLbox(index);
-                }}
-              >
-                <SlOptionsVertical />
-              </button>
-              {showLbox[index] && (
-                <div className="absolute top-10 right-2 z-10">
-                  <LBox />
-                </div>
-              )}
+              <div className="absolute top-2 right-2 z-10 bg-red-900 rounded-md">
+                <SlOptionsVertical
+                  className="text-white absolute top-2 right-2 border-none cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedCardIndex(
+                      index === selectedCardIndex ? null : index
+                    );
+                  }}
+                />
+                {index === selectedCardIndex && <LBox />}
+              </div>
             </div>
           </CardBody>
           <CardFooter className="w-[240px] text-bold justify-between">

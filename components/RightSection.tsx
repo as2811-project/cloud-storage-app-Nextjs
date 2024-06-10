@@ -7,9 +7,9 @@ import { FileUpload } from "./UploadFile";
 const RightSidebar: React.FC = () => {
   return (
     <div className="float-right flex h-full">
-      <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[375px] p-2">
+      <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[375px]">
         <Box>
-          <div className="flex flex-col gap-y-4 px-5 py-4">
+          <div className="flex flex-col gap-y-4 px-8 py-4">
             <h1 className="text-xl flex items-center text-white">Actions</h1>
             <Divider className="text-white" />
             <FileUpload />

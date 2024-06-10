@@ -22,7 +22,7 @@ export default function FilesFolders() {
   ];
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-3 gap-4">
       {list.map((item, index) => (
         <Card
           shadow="sm"
