@@ -1,9 +1,17 @@
 "use client";
+
 import React from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import Link from "next/link";
+
+type FileItem = {
+  title: string;
+  img: string;
+  filetype: string;
+};
 
 export default function FilesFolders() {
-  const list = [
+  const list: FileItem[] = [
     {
       title: "Orange",
       img: "/mc-file-document.png",
@@ -12,7 +20,7 @@ export default function FilesFolders() {
     {
       title: "Raspberry",
       img: "/folder.png",
-      filetype: "JPEG",
+      filetype: "Folder",
     },
     {
       title: "Lemon",
@@ -27,41 +35,41 @@ export default function FilesFolders() {
     {
       title: "Banana",
       img: "/folder.png",
-      filetype: "JPEG",
+      filetype: "Folder",
     },
     {
       title: "Pear",
       img: "/folder.png",
-      filetype: "PDF",
+      filetype: "Folder",
     },
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 sm:grid-row gap-4">
       {list.map((item, index) => (
-        <Card
-          shadow="sm"
+        <Link
+          href={item.filetype === "Folder" ? `/cloud/${item.title}` : "#"}
           key={index}
-          isPressable
-          onClick={() => console.log("item pressed")}
         >
-          <CardBody className="p-1 ml-2">
-            <div className="relative w-[240px] h-[200px] hover:bg-neutral-700 rounded-lg bg-neutral-800 flex items-center justify-center">
-              <Image
-                shadow="sm"
-                radius="lg"
-                alt={item.title}
-                className="object-contain w-20 h-20"
-                src={item.img}
-                width={80}
-                height={80}
-              />
-            </div>
-          </CardBody>
-          <CardFooter className="w-[240px] text-bold justify-between">
-            <p>{item.title}</p>
-          </CardFooter>
-        </Card>
+          <Card shadow="sm" isPressable>
+            <CardBody className="p-1 ml-2">
+              <div className="relative w-[240px] h-[200px] hover:bg-neutral-700 rounded-lg bg-neutral-800 flex items-center justify-center">
+                <Image
+                  shadow="sm"
+                  radius="lg"
+                  alt={item.title}
+                  className="object-contain w-20 h-20"
+                  src={item.img}
+                  width={80}
+                  height={80}
+                />
+              </div>
+            </CardBody>
+            <CardFooter className="w-[240px] text-bold justify-between">
+              <p>{item.title}</p>
+            </CardFooter>
+          </Card>
+        </Link>
       ))}
     </div>
   );
