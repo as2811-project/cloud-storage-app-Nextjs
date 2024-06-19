@@ -68,7 +68,7 @@ export const FileUpload = () => {
           <object
             className="rounded-md w-full max-w-xs h-72"
             data={file}
-            type="image/png" //need to be updated based on type of file
+            type="image/png"
           />
           <button
             onClick={() => setFile("")}

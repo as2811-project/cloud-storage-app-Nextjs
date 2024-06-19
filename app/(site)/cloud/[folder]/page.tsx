@@ -11,6 +11,7 @@ type FileItem = {
 };
 
 export default function FolderPage() {
+  const [loading, setLoading] = useState(true);
   const params = useParams<{ folder: string }>();
   const folderName = params.folder;
   console.log(params);
