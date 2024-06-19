@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { useState, useEffect } from "react";
+import Header from "@/components/Header";
 
 type FileItem = {
   title: string;
@@ -11,7 +12,7 @@ type FileItem = {
 };
 
 export default function FolderPage() {
-  const [loading, setLoading] = useState(true);
+  //const [loading, setLoading] = useState(true);
   const params = useParams<{ folder: string }>();
   const folderName = params.folder;
   console.log(params);
@@ -30,9 +31,11 @@ export default function FolderPage() {
   }, [folderName]);
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-normal mb-4">Files in {folderName}</h1>
-      <div className="grid grid-cols-3 gap-4">
+    <div className="dark:bg-neutral-950 rounded-lg lg:h-full lg:w-full overflow-hidden overflow-y-auto mr-5">
+      <Header>
+        <h1 className="text-2xl font-normal mb-2">Files in {folderName}</h1>
+      </Header>
+      <div className="ml-8 grid grid-cols-3 gap-4">
         {files.map((file) => (
           <Card shadow="sm" isPressable>
             <CardBody className="p-1 ml-2">

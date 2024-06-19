@@ -12,6 +12,7 @@ export default function Login() {
         </span>
       </h1>
       <h1 className="text-2xl flex py-4">Login</h1>
+      {/* <form onSubmit={handleSubmit}> */}
       <div className="rounded-2xl bg-neutral-700 text-white shadow-lg px-3">
         <Input
           label="Email"
@@ -45,11 +46,12 @@ export default function Login() {
         />
       </div>
       <Button
-        onClick={() => {}}
+        type="submit"
         className="mt-5 p-1 px-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white hover:from-pink-500 hover:to-yellow-500"
       >
         Login
       </Button>
+      {/* </form> */}
     </div>
   );
 }
